@@ -11,7 +11,6 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-
   const { firebase } = useContext(FirebaseContext);
   const handleSubmit = (e) => {
     e.preventDefault();

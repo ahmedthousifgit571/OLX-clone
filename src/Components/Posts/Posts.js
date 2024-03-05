@@ -1,12 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-
 import Heart from "../../assets/Heart";
 import "./Post.css";
-import { FirebaseContext } from "../../store/context";
+import { FirebaseContext,AuthContext } from "../../store/context";
+import { postContext } from "../../store/postContext";
+import { useNavigate } from "react-router-dom";
+
 function Posts() {
   const { firebase } = useContext(FirebaseContext);
   const [products, setProducts] = useState([]);
-
+  const { setPostDetails } = useContext(postContext);
+  
+  const navigate = useNavigate();
   useEffect(() => {
     firebase
       .firestore()
@@ -21,7 +25,7 @@ function Posts() {
         });
         setProducts(allPost);
       });
-  });
+  }, []);
   return (
     <div className="postParentDiv">
       <div className="moreView">
@@ -30,9 +34,17 @@ function Posts() {
           <span>View more</span>
         </div>
         <div className="cards">
-        {products.map((product) => {
+          {products.map((product) => {
             return (
-              <div className="card">
+              <div
+                className="card"
+                onClick={() => {
+                  console.log(product, "hjhjhj");
+
+                  setPostDetails(product);
+                  navigate("/view");
+                }}
+              >
                 <div className="favorite">
                   <Heart></Heart>
                 </div>

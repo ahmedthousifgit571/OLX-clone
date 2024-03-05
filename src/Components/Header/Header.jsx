@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 function Header() {
   const navigate = useNavigate()
   const { user } = useContext(AuthContext);
-  console.log(user,'ddfyuhkjo');
   const { firebase } = useContext(FirebaseContext);
   return (
     <div className="headerParentDiv">
