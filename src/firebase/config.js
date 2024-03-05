@@ -1,6 +1,8 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+import "firebase/compat/storage";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDYh4-W6C2Fr7Byx_Cc0Kh2hHKopkN7nHQ",
   authDomain: "fir-4dbe7.firebaseapp.com",
